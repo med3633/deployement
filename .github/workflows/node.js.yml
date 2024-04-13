@@ -21,32 +21,32 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: .
-          target: /home/ubuntu/Deploy_django_react/
+          target: /home/ubuntu/deployement/
           
-      - name: Debug directory structure
-        run: |
-          ls -R
+      # - name: Debug directory structure
+      #   run: |
+      #     ls -R
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_TOKEN }}
+      # - name: Login to Docker Hub
+      #   uses: docker/login-action@v3
+      #   with:
+      #       username: ${{ secrets.DOCKER_USERNAME }}
+      #       password: ${{ secrets.DOCKER_TOKEN }}
         
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-            push: true
-            tags: mohamedamineblibech/back:latest
-            context: ./django/khedma
+      # - name: Build and push
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #       push: true
+      #       tags: mohamedamineblibech/back:latest
+      #       context: ./django/khedma
           
 
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-            push: true
-            tags: mohamedamineblibech/front:latest
-            context: ./reactjs/khedma
+      # - name: Build and push
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #       push: true
+      #       tags: mohamedamineblibech/front:latest
+      #       context: ./reactjs/khedma
 
   continuos_deployment:
     needs: continuous_integrate
@@ -62,7 +62,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/Deploy_django_react/
+            cd /home/ubuntu/deployement/
             sudo docker-compose down
             sudo docker-compose up --build -d
  
