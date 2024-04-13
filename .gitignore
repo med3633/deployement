@@ -1,0 +1,7 @@
+django/myenv
+reactjs/node_modules
+reactjs/khedma/node_modules
+./django/myenv
+/django/myenv
+backup_data
+django/*/media/
