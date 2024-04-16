@@ -24,7 +24,7 @@ services:
       - khedma_network
     volumes:
       - digitalocean_media-volume:/django/khedma/media
-##
+##########""
   frontend:
     image: mohamedamineblibech/frontend
     volumes:
