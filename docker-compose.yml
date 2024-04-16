@@ -17,7 +17,7 @@ services:
     image: mohamedamineblibech/backend
     command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000 --certfile=/etc/ssl/certs/fullchain.pem --keyfile=/etc/ssl/private/privkey.pem"
     ports:
-      - "80000:8000"  # Expose HTTP on port 80
+      - "8000:8000"  # Expose HTTP on port 80
     depends_on:
       - database
     networks:
