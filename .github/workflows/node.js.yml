@@ -23,30 +23,30 @@ jobs:
           source: .
           target: /home/ubuntu/deployement/
           
-      # - name: Debug directory structure
-      #   run: |
-      #     ls -R
+      - name: Debug directory structure
+        run: |
+          ls -R
 
-      # - name: Login to Docker Hub
-      #   uses: docker/login-action@v3
-      #   with:
-      #       username: ${{ secrets.DOCKER_USERNAME }}
-      #       password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_TOKEN }}
         
-      # - name: Build and push
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #       push: true
-      #       tags: mohamedamineblibech/back:latest
-      #       context: ./django/khedma
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+            push: true
+            tags: mohamedamineblibech/backend:latest
+            context: ./django/khedma
           
 
-      # - name: Build and push
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #       push: true
-      #       tags: mohamedamineblibech/front:latest
-      #       context: ./reactjs/khedma
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+            push: true
+            tags: mohamedamineblibech/frontend:latest
+            context: ./reactjs/khedma
 
   continuos_deployment:
     needs: continuous_integrate
