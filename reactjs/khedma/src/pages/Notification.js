@@ -30,7 +30,7 @@ export async function handlePublierEmploiClick() {
           title: 'khedma', 
           message: 'Merci de vous abonner. Restez à jour!',
           duration: 5000,
-          image: 'https://51.77.221.126:8000/media/images/logokhedmanotification.png',
+          image: 'https://51.255.49.204:8000/media/images/logokhedmanotification.png',
          
           style: {
             backgroundColor: 'blue',
@@ -49,7 +49,7 @@ export async function handlePublierEmploiClick() {
       title: 'khedma', 
       message: 'Merci de vous abonner. Restez à jour!',
       duration: 5000,
-      image: 'https://51.77.221.126:8000/media/images/logokhedmanotification.png',
+      image: 'https://51.255.49.204:8000/media/images/logokhedmanotification.png',
       native: true
     });
   }
