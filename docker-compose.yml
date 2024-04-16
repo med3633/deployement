@@ -25,9 +25,9 @@ services:
       - khedma_network
     volumes:
       - digitalocean_media-volume:/django/khedma/media
-
+##
   frontend:
-    image: mohamedamineblibech/frontent 
+    build: ./reactjs/khedma
     volumes:
       - web-root:/app/build
     depends_on:
