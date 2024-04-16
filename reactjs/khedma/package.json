@@ -65,7 +65,7 @@
     "prod": "react-scripts build",
     "dev_old": "rd /s /q ..\\..\\django\\khedma\\build && react-scripts build && Xcopy /E /I build ..\\..\\django\\khedma\\build",
     "dev": "@echo off && rd /s /q ..\\..\\django\\khedma\\build_backup && move /Y ..\\..\\django\\khedma\\build ..\\..\\django\\khedma\\build_backup && react-scripts build && mkdir ..\\..\\django\\khedma\\build && Xcopy /E /I /Exclude:exclude.txt ..\\..\\django\\khedma\\build_backup ..\\..\\django\\khedma\\build",
-    "build": "mkdir -p ../../django/khedma/build && react-scripts build && cp -r build ../../django/khedma/build",
+    "build": "react-scripts build && cp -r build ../../django/khedma/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
