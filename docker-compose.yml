@@ -12,11 +12,11 @@ services:
       - POSTGRES_PASSWORD=postgres
     networks:
       - khedma_network
-############
+
   backend:
     build:
       context: ./django/khedma
-    command: gunicorn khedma.wsgi --bind 0.0.0.0:8000 --certfile=/etc/ssl/certs/fullchain.pem --keyfile=/etc/ssl/private/privkey.pem
+    command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000 --certfile=/etc/ssl/certs/fullchain.pem --keyfile=/etc/ssl/private/privkey.pem"
     ports:
       - "443:8000"  # Expose HTTPS on port 443
     depends_on:
