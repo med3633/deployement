@@ -7,4 +7,3 @@ COPY . .
 EXPOSE 3000
 # Run app
 CMD ["npm", "run", "start"]
-###
