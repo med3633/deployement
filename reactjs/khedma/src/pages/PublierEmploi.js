@@ -47,7 +47,7 @@ function SelectedCategory({ category, onRemove }) {
   );
 }
 
-const baseURL='https://127.0.0.1:8000'
+const baseURL='https://51.255.49.204:8000'
 
 
 const PublierEmploi = (props) => {
