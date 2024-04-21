@@ -66,11 +66,11 @@ services:
   #   networks:
   #     - khedma_network
 
-# volumes:
+volumes:
 #   certbot-etc:
 #   certbot-var:
 #   web-root:
-#   digitalocean_media-volume:
+   digitalocean_media-volume:
 #   dhparam:
 #     driver: local
 #     driver_opts:
