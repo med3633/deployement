@@ -1,6 +1,10 @@
-FROM node:16.13.1-alpine
-WORKDIR /reactjs 
+FROM node:15-alpine
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install --legacy-peer-deps
 COPY . .
-RUN npm install
-RUN npm run build
-#################################
+
+EXPOSE 3000
+# Run app
+CMD ["npm", "run", "start"]
+
