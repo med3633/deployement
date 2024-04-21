@@ -3,3 +3,4 @@ WORKDIR /reactjs
 COPY . .
 RUN npm install
 RUN npm run build
+###
