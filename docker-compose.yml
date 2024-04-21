@@ -66,17 +66,17 @@ services:
   #   networks:
   #     - khedma_network
 
-volumes:
-  certbot-etc:
-  certbot-var:
-  web-root:
-  digitalocean_media-volume:
-  dhparam:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/ubuntu/deployement/dhparam/
-      o: bind
+# volumes:
+#   certbot-etc:
+#   certbot-var:
+#   web-root:
+#   digitalocean_media-volume:
+#   dhparam:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /home/ubuntu/deployement/dhparam/
+#       o: bind
 
 networks:
   khedma_network:
