@@ -122,7 +122,8 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
                 <div className="chat-header">
                   <div className="follower-vertical">
                     <img
-                      src={`https://51.255.49.204:8000/${userData?.logo || 'defaultProfile.png'}`}
+                      // src={`https://51.255.49.204:8000/${userData?.logo || 'defaultProfile.png'}`}
+                      src={`http://127.0.0.1:8000/${userData?.logo || 'defaultProfile.png'}`}
                       alt=""
                       className="followerImage"
                       style={{ width: '50px', height: '50px' }}

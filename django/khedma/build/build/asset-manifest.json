@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.69b13a17.css",
+    "main.js": "/static/js/main.c2d5fda7.js",
+    "static/js/787.8592c3cc.chunk.js": "/static/js/787.8592c3cc.chunk.js",
+    "static/media/backgroundkhedma.png": "/static/media/backgroundkhedma.1086d949bd95112f0f0e.png",
+    "static/media/bg2khedma.png": "/static/media/bg2khedma.910c9e4ab1a8680fe832.png",
+    "static/media/icomoon.svg?10si43": "/static/media/icomoon.9cc47145c3e61b03d8b8.svg",
+    "static/media/icomoon.eot?10si43": "/static/media/icomoon.8b8f9ff3c2746bcd479b.eot",
+    "static/media/icomoon.woff?10si43": "/static/media/icomoon.ea68cea3e4f47f1e3338.woff",
+    "static/media/icomoon.ttf?10si43": "/static/media/icomoon.46b5067758e501c1cc60.ttf",
+    "static/media/icomoon.svg?f14h0d": "/static/media/icomoon.c9da70ab112feb5a735a.svg",
+    "static/media/icomoon.eot?f14h0d": "/static/media/icomoon.ef1cee237773005b9f63.eot",
+    "static/media/icomoon.woff?f14h0d": "/static/media/icomoon.22d2d46f58a15b5023c4.woff",
+    "static/media/icomoon.ttf?f14h0d": "/static/media/icomoon.59f796aad622876721f0.ttf",
+    "static/media/notificationLogo.png": "/static/media/notificationLogo.d96ada2565238bdad435.png",
+    "index.html": "/index.html",
+    "main.69b13a17.css.map": "/static/css/main.69b13a17.css.map",
+    "main.c2d5fda7.js.map": "/static/js/main.c2d5fda7.js.map",
+    "787.8592c3cc.chunk.js.map": "/static/js/787.8592c3cc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69b13a17.css",
+    "static/js/main.c2d5fda7.js"
+  ]
+}
