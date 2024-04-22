@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-y=)-^f1*m!b^$7=)a=$%9)2cv%4a2por%m#@p3v@_%sa!!@b*5
 #DEBUG = False
 DEBUG = True
 ##
-ALLOWED_HOSTS = ['51.255.49.204' , 'localhost' , '127.0.0.1' , 'mohamed123.zapto.org']
+
+ALLOWED_HOSTS = ['backend', 'frontend', '51.255.49.204','mohamed123.zapto.org']  # Add your frontend and backend hostnames
 
 
 
@@ -84,20 +85,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 CORS_ALLOWED_ORIGINS = [
-    # 'http://127.0.0.1:8000',
-    # 'http://localhost:8000', 
-    # 'http://localhost:3000',  
-    # 'http://localhost:8800',
-    # 'http://localhost:3001',
-     
-    'http://51.255.49.204:80',
-    'http://51.255.49.204:8080',
-    'https://51.255.49.204:80',
-    'https://51.255.49.204:8080',
-    'https://mohamed123.zapto.org',
-    'http://mohamed123.zapto.org',
-    'https://51.255.49.204',
-    'http://51.255.49.204',
+
+    'http://backend:8000',
+    'http://frontend:3000',  
+    'http://frontend:8800',
+    'http://frontend:3001',
+
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
@@ -257,7 +250,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-SITE_URL='https://testt2.ddns.net/'
+SITE_URL='https://mohamed123.zapto.org'
 STRIPE_PUBLIC_KEY = "pk_test_51NMx6pCEDPGV7wFOYDafbFRbWKEX5N4q4b7pzz7cls5vmwwzJxXFKAwMNXXi5iZOJ6kAguk2623QfkXwNz4W4Z1r00BHVB6zHK"
 STRIPE_SECRET_KEY = 'sk_test_51NMx6pCEDPGV7wFOeBkpPPNg15nf3HXPIyjLhMLCqMOAJ22oZ7OphEGE1oEUyCtFxogJwVfHTJEVthdbTC0o9gkI008o9d6wQ8'
 #STRIPE_WEBHOOK_SECRET = "whsec_52607b6c553df150d7e16f1d5942c3709e59fc2e8369f4ed1006e8c702766507"

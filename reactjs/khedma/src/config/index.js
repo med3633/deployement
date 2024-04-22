@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router";
 
-export const API_URL="https://51.255.49.204:8000";
+export const API_URL="http://backend:8000";
 
 
 export const useQuery=()=>{
