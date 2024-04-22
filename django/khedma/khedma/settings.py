@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-y=)-^f1*m!b^$7=)a=$%9)2cv%4a2por%m#@p3v@_%sa!!@b*5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['backend', 'frontend', 'localhost']  # Add your frontend and backend hostnames
 
 
 
@@ -62,11 +62,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:8000',
-    'http://localhost:8000', 
-    'http://localhost:3000',  
-   'http://localhost:8800',
-    'http://localhost:3001',
+    'http://backend:8000',
+    'http://backend:8000', 
+    'http://frontend:3000',  
+   'http://frontend:8800',
+    'http://frontend:3001',
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
@@ -77,8 +77,8 @@ ROOT_URLCONF = 'khedma.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'build')],
-        # 'DIRS': [],
+        # 'DIRS': [os.path.join(BASE_DIR,'build')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,16 +103,17 @@ WSGI_APPLICATION = 'khedma.wsgi.application'
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
-DATABASES={
-   'default':{
-      'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'khedma',
-      'USER':'postgres',
-      'PASSWORD':'khedma123',
-      'HOST':'localhost',
-      'PORT':'5432',
-   }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+       'PASSWORD': 'postgres',
+        'HOST': 'database', 
+        'PORT': 5432,
+    }
 }
+
 
 
 
@@ -214,7 +215,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-SITE_URL='http://localhost:8000'
+SITE_URL='http://backend:8000'
 STRIPE_PUBLIC_KEY = "pk_test_51NMx6pCEDPGV7wFOYDafbFRbWKEX5N4q4b7pzz7cls5vmwwzJxXFKAwMNXXi5iZOJ6kAguk2623QfkXwNz4W4Z1r00BHVB6zHK"
 STRIPE_SECRET_KEY = 'sk_test_51NMx6pCEDPGV7wFOeBkpPPNg15nf3HXPIyjLhMLCqMOAJ22oZ7OphEGE1oEUyCtFxogJwVfHTJEVthdbTC0o9gkI008o9d6wQ8'
 #STRIPE_WEBHOOK_SECRET = "whsec_52607b6c553df150d7e16f1d5942c3709e59fc2e8369f4ed1006e8c702766507"

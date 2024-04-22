@@ -191,7 +191,9 @@ const ProfileSociete= (props)=> {
           }
           if( newpassword === renewpassword){
             const response = await axios.post(
-              `https://51.255.49.204:8000/auth/passwordchange/${id}/`,
+              // `https://51.255.49.204:8000/auth/passwordchange/${id}/`,
+              `http://backend:8000/auth/passwordchange/${id}/`,
+
               { old_password: oldpassword, new_password: newpassword }, // Adjust the field name here
               {
                 headers: {

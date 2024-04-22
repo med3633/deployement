@@ -32,7 +32,7 @@ function Chat({ id, isAuthenticated }) {
 
   useEffect(() => {
     // socket.current = io("https://51.255.49.204:8800");
-    socket.current = io("http://127.0.0.1:8800");
+    socket.current = io("http://backend:8800");
     socket.current.emit("new-user-add", id);
     socket.current.on("get-users", (users) => {
       setOnlineUsers(users);
