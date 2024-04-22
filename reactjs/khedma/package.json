@@ -93,4 +93,5 @@
     "react-scripts": "^5.0.1"
   },
   "proxy":"http://backend:8000"
+
 }

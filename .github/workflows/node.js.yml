@@ -1,0 +1,68 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "version11","version22" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  continuous_integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Transfer all project files
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_ADDRESS }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: .
+          target: /home/ubuntu/deployement/
+          
+      - name: Debug directory structure
+        run: |
+          ls -R
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_TOKEN }}
+        
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+            push: true
+            tags: mohamedamineblibech/backend:latest
+            context: ./django/khedma
+          
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+            push: true
+            tags: mohamedamineblibech/frontend:latest
+            context: ./reactjs/khedma
+
+  continuos_deployment:
+    needs: continuous_integrate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # Deployment steps
+      - name: Execute SSH Commands for Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_ADDRESS }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/deployement/
+            sudo docker-compose down
+            sudo docker-compose up --build -d
+ 
