@@ -10,13 +10,16 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    networks:
+      - khedma_network
 
   backend:
     image: mohamedamineblibech/backend
     command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000"
     depends_on:
       - database
-  
+    networks:
+      - khedma_network
     volumes:
       - digitalocean_media-volume:/django/khedma/media
 
@@ -24,6 +27,8 @@ services:
     image: mohamedamineblibech/frontend
     depends_on:
       - backend
+    networks:
+      - khedma_network
 
   webserver:
     image: nginx
@@ -35,6 +40,8 @@ services:
     depends_on:
       - frontend
       - backend
+    networks:
+      - khedma_network
 
 volumes:
   digitalocean_media-volume:
