@@ -16,6 +16,8 @@ services:
   backend:
     image: mohamedamineblibech/backend
     command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
     depends_on:
       - database
     networks:
@@ -25,6 +27,8 @@ services:
 
   frontend:
     image: mohamedamineblibech/frontend
+    ports:
+      - "3000:3000"
     depends_on:
       - backend
     networks:
