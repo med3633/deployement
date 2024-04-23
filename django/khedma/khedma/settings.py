@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-y=)-^f1*m!b^$7=)a=$%9)2cv%4a2por%m#@p3v@_%sa!!@b*5
 DEBUG = True
 
 ALLOWED_HOSTS = ['backend', 'frontend', 'localhost']  # Add your frontend and backend hostnames
-
+##
 
 
 # Application definition
