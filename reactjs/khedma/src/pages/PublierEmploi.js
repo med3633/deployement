@@ -47,6 +47,7 @@ function SelectedCategory({ category, onRemove }) {
   );
 }
 
+
 const baseURL='http://backend:8000'
 
 

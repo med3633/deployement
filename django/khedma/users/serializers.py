@@ -95,7 +95,7 @@ class CustomUserCreateSerializer(UserCreateSerializer):
 
         # Send activation email
         uid = encode_uid(user.pk)
-        activation_url = f"http://127.0.0.1:8000/auth/users/activate/{uid}"
+        activation_url = f"http://localhost:8000/auth/users/activate/{uid}"
         activation_email = ActivationEmail(self.context)
         activation_email.send(user=user, to=[user.email], context={'activation_url': activation_url})
 

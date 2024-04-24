@@ -26,15 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y=)-^f1*m!b^$7=)a=$%9)2cv%4a2por%m#@p3v@_%sa!!@b*5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
 DEBUG = True
+
+ALLOWED_HOSTS = ['backend', 'frontend', 'localhost']  # Add your frontend and backend hostnames
 ##
-
-ALLOWED_HOSTS = ['backend', 'frontend', '51.255.49.204', 'mohamed123.zapto.org', 'localhost', '127.0.0.1']
-
-
-
-
 
 
 # Application definition
@@ -58,7 +53,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware', 
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,31 +60,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
-
-# Set this to True to enable HTTPS redirection
-SECURE_SSL_REDIRECT = True
-
-# Set this to True to ensure all cookies are marked as secure
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
-# Optionally, you can set the HSTS header to enforce HTTPS for a specified duration
-SECURE_HSTS_SECONDS = 31536000  # 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-# Set this if your Django app is behind a proxy or load balancer
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-
 CORS_ALLOWED_ORIGINS = [
-
     'http://backend:8000',
+    'http://backend:8000', 
     'http://frontend:3000',  
-    'http://frontend:8800',
+   'http://frontend:8800',
     'http://frontend:3001',
-
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
@@ -102,8 +78,12 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [os.path.join(BASE_DIR,'build')],
+<<<<<<< HEAD
                 'DIRS': [],
 
+=======
+        'DIRS': [],
+>>>>>>> local
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,18 +108,6 @@ WSGI_APPLICATION = 'khedma.wsgi.application'
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
-
-#DATABASES={
-#   'default':{
-#      'ENGINE':'django.db.backends.postgresql_psycopg2',
-#      'NAME':'khedma',
-#      'USER':'postgres',
-#      'PASSWORD':'khedma123',
-#      'HOST':'localhost',
-#      'PORT':'5432',
-#   }
-#}
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -150,6 +118,8 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
+
 
 
 # email
@@ -247,11 +217,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+<<<<<<< HEAD
 
+=======
+>>>>>>> local
 SITE_URL='http://backend:8000'
 STRIPE_PUBLIC_KEY = "pk_test_51NMx6pCEDPGV7wFOYDafbFRbWKEX5N4q4b7pzz7cls5vmwwzJxXFKAwMNXXi5iZOJ6kAguk2623QfkXwNz4W4Z1r00BHVB6zHK"
 STRIPE_SECRET_KEY = 'sk_test_51NMx6pCEDPGV7wFOeBkpPPNg15nf3HXPIyjLhMLCqMOAJ22oZ7OphEGE1oEUyCtFxogJwVfHTJEVthdbTC0o9gkI008o9d6wQ8'
@@ -263,16 +235,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = None
 # settings.py
-
-# Durée de session en secondes (10 minutes)
-#SESSION_COOKIE_AGE = 600
-
-# Set the maximum size (in bytes) that a request's body may be before a
-# SuspiciousOperation (RequestDataTooBig) is raised.
-#FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
-
-# A tuple of upload handler classes to use for handling file uploads.
-#FILE_UPLOAD_HANDLERS = [
-#    'django.core.files.uploadhandler.MemoryFileUploadHandler',
-#    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
-#]
