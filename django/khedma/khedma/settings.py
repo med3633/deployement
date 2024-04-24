@@ -78,12 +78,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [os.path.join(BASE_DIR,'build')],
-<<<<<<< HEAD
-                'DIRS': [],
-
-=======
         'DIRS': [],
->>>>>>> local
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
