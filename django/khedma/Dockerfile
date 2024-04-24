@@ -13,7 +13,7 @@ COPY requirements.txt requirements.txt
 # Install the project's dependencies using the specified Python version
 RUN pip install -r requirements.txt
 
-
+####
 # Copy the rest of your project files into the container
 COPY . .
 
