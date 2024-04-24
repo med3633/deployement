@@ -23,7 +23,7 @@ COPY . .
 #RUN python3 manage.py makemigrations
 
 #RUN python manage.py collectstatic --noinput
-
+ #################""
 # Apply migrations
 # RUN python3 manage.py migrate 
 CMD ["./wait-for-it.sh", "database:5432", "--", "python", "manage.py", "migrate"]
