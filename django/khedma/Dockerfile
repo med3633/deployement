@@ -20,7 +20,7 @@ COPY . .
 
 
 # Make migrations
-RUN python3 manage.py makemigrations
+#RUN python3 manage.py makemigrations
 
 #RUN python manage.py collectstatic --noinput
 
