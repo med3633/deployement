@@ -29,8 +29,6 @@ services:
       # - /etc/letsencrypt/live/mohamed123.zapto.org/privkey.pem:/etc/ssl/private/privkey.pem
   frontend:
     build: ./reactjs/khedma/
-    ports:
-      - "3000:3000"
     # volumes:
     #   - web-root:/app/build
     depends_on:
@@ -55,7 +53,7 @@ services:
 
 volumes:
   digitalocean_media-volume:
-  
+
 networks:
   khedma_network:
     driver: bridge

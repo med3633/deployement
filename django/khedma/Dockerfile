@@ -17,8 +17,6 @@ RUN pip install -r requirements.txt
 # Copy the rest of your project files into the container
 COPY . .
 
-
-
 # Make migrations
 RUN python3 manage.py makemigrations
 
