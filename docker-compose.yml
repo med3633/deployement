@@ -12,23 +12,27 @@ services:
       - POSTGRES_PASSWORD=postgres
     networks:
       - khedma_network
-##
+####
   backend:
-    build: ./django/khedma/
+    build:
+      context: ./django/khedma
     command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000"
     ports:
-      - "8000:8000"
+      - "8000:8000"  ## Expose HTTPS on port 443
     depends_on:
       - database
     networks:
       - khedma_network
     volumes:
       - digitalocean_media-volume:/django/khedma/media
-
+      # - /etc/letsencrypt/live/mohamed123.zapto.org/fullchain.pem:/etc/ssl/certs/fullchain.pem
+      # - /etc/letsencrypt/live/mohamed123.zapto.org/privkey.pem:/etc/ssl/private/privkey.pem
   frontend:
     build: ./reactjs/khedma/
     ports:
       - "3000:3000"
+    # volumes:
+    #   - web-root:/app/build
     depends_on:
       - backend
     networks:
@@ -40,17 +44,17 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro # Mount the nginx.conf file into the container
+     # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - frontend
       - backend
     networks:
       - khedma_network
 
-volumes:
-  digitalocean_media-volume:
-
 networks:
   khedma_network:
     driver: bridge
-
+########################
+volumes:
+  digitalocean_media-volume:
