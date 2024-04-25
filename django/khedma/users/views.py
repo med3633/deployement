@@ -348,7 +348,7 @@ class PersonneCreateView(APIView):
             # address = "51.255.49.204"
             token = default_token_generator.make_token(user)
             uid = encode_uid(str(user.pk))  # Convert user primary key to UID
-            activation_url = f"{current_site.mohamed123.zapto.org}/activate/{uid}/{token}"
+            activation_url = f"{current_site.amine123.ddns.net}/activate/{uid}/{token}"
             # activation_url = f"{address}/activate/{uid}/{token}"
 
 
@@ -416,7 +416,7 @@ class SocieteCreateView(APIView):
             token = default_token_generator.make_token(user)
             uid = encode_uid(str(user.pk))  # Convert user primary key to UID
             #activation_url = reverse('user-activation', kwargs={'uid': uid, 'token': token})
-            activation_url = f"http://{current_site.mohamed123.zapto.org}/activate/{uid}/{token}"
+            activation_url = f"http://{current_site.amine.ddns.net}/activate/{uid}/{token}"
             # activation_url = f"http://{address}/activate/{uid}/{token}"
 
 
