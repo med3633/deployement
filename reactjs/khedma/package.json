@@ -92,5 +92,5 @@
     "concurrently": "^8.2.1",
     "react-scripts": "^5.0.1"
   },
-  "proxy":"http://backend:8000"
+  "proxy":"http://51.255.49.204:8000"
 }
