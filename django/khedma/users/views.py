@@ -348,7 +348,7 @@ class PersonneCreateView(APIView):
             # address = "51.255.49.204"
             token = default_token_generator.make_token(user)
             uid = encode_uid(str(user.pk))  # Convert user primary key to UID
-            activation_url = f"{current_site.test1234567.zapto.org}/activate/{uid}/{token}"
+            activation_url = f"{current_site.mohamedamine.zapto.org}/activate/{uid}/{token}"
             # activation_url = f"{address}/activate/{uid}/{token}"
 
 
