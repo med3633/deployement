@@ -344,11 +344,12 @@ class PersonneCreateView(APIView):
                 personne = Personne.objects.create(**personne_data)
 
             # Send activation email
-            current_site = get_current_site(request)
-           
+            # current_site = get_current_site(request)
+            address = "51.255.49.204"
             token = default_token_generator.make_token(user)
             uid = encode_uid(str(user.pk))  # Convert user primary key to UID
-            activation_url = f"{current_site}/activate/{uid}/{token}"
+            # activation_url = f"{current_site}/activate/{uid}/{token}"
+            activation_url = f"{address}/activate/{uid}/{token}"
 
 
             # Build the activation URL
