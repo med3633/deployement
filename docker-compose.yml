@@ -24,7 +24,7 @@ services:
       - khedma_network
     volumes:
       - digitalocean_media-volume:/django/khedma/media
-      - digitalocean_static-volume:/django/khedma/static
+      # - digitalocean_static-volume:/django/khedma/static
 
   frontend:
     build: ./reactjs/khedma/
@@ -49,7 +49,7 @@ services:
 
 volumes:
   digitalocean_media-volume:
-  digitalocean_static-volume:
+  # digitalocean_static-volume:
 
 networks:
   khedma_network:
