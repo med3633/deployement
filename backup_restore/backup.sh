@@ -15,7 +15,7 @@ mkdir -p $BACKUP_PATH
 
 # Backup PostgreSQL database from container
 echo "Backing up database: $DATABASE"
-docker exec -t $CONTAINER_NAME pg_dump -U postgres -d $DATABASE > $BACKUP_PATH/$(date +%d-%m-%Y)-$DATABASE.sql
+docker exec -t $CONTAINER_NAME pg_dump -U postgres -d $DATABASE > $BACKUP_PATH/$(date +%d-%m-%Y)-$DATABASE.dump
 
 # Transfer backup to remote server
 echo "Transferring backup to remote server"
