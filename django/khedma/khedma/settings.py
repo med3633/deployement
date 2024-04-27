@@ -208,11 +208,10 @@ DJOSER = {
 AUTH_USER_MODEL='users.UserAccount'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'build')
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 SITE_URL='http://51.255.49.204'
