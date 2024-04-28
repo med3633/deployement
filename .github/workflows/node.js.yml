@@ -2,27 +2,23 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "version11","version22" ,"version33"]
+    branches: [ "version11", "version22", "version33" ]
   pull_request:
     branches: [ "master" ]
 
 jobs:
   continuous_integrate:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 30
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      # If necessary, you can copy files directly using 'rsync' without the need for SSH
       - name: Transfer all project files
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.EC2_ADDRESS }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          source: .
-          target: /home/ubuntu/deployement/
-          
+        run: rsync -avz --exclude '.git/' ./ ${{ secrets.AGENT_DIRECTORY }}
+
+      # Debug directory structure (optional)
       - name: Debug directory structure
         run: |
           ls -R
@@ -30,39 +26,33 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_TOKEN }}
-        
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-            push: true
-            tags: mohamedamineblibech/backend:latest
-            context: ./django/khedma
-          
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Build and push
+      # Build and push Docker images for backend
+      - name: Build and push backend image
         uses: docker/build-push-action@v5
         with:
-            push: true
-            tags: mohamedamineblibech/frontend:latest
-            context: ./reactjs/khedma
+          push: true
+          tags: mohamedamineblibech/backend:latest
+          context: ./django/khedma
+
+      # Build and push Docker images for frontend
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: mohamedamineblibech/frontend:latest
+          context: ./reactjs/khedma
 
   continuos_deployment:
     needs: continuous_integrate
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 30
     steps:
-      # Deployment steps
-      - name: Execute SSH Commands for Deployment
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_ADDRESS }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            cd /home/ubuntu/deployement/
-            sudo docker-compose down
-            sudo docker-compose up --build -d
- 
+      # Deployment steps can be executed directly on the agent
+      - name: Execute Deployment
+        run: |
+          cd ${{ secrets.AGENT_DIRECTORY }}
+          sudo docker-compose down
+          sudo docker-compose up --build -d
