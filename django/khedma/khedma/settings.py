@@ -211,7 +211,7 @@ STATIC_URL = 'static/'
 MEDIA_URL='media/'
 
 # STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT=' /django/khedma/static/',
+STATIC_ROOT= '/django/khedma/static/',
 
 # MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_ROOT=  '/django/khedma/media/'
