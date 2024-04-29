@@ -15,9 +15,10 @@ services:
 
 
   backend:
-    build:
-      context: ./django/khedma
-    #command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000"
+    # build:
+    #   context: ./django/khedma
+    image: mohamedamineblibech/backend
+    command: sh -c "python manage.py makemigrations && python manage.py migrate &&  gunicorn khedma.wsgi --bind 0.0.0.0:8000"
     depends_on:
       - database
     networks:
@@ -27,7 +28,8 @@ services:
       - digitalocean_static-volume:/django/khedma/static
 
   frontend:
-    build: ./reactjs/khedma/
+    # build: ./reactjs/khedma/
+    image: mohamedamineblibech/frontend
     depends_on:
       - backend
     networks:

@@ -21,12 +21,12 @@ COPY . .
 # Make migrations
 #RUN python3 manage.py makemigrations
 
-#RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 # Apply migrations
 # RUN python3 manage.py migrate 
 #run when container launch
-ENTRYPOINT [ "sh", "-c", "./script/start.sh" ]
+# ENTRYPOINT [ "sh", "-c", "./script/start.sh" ]
 CMD ["./wait-for-it.sh", "database:5432", "--", "python", "manage.py", "migrate"]
 
 
