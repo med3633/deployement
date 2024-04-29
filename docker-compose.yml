@@ -13,7 +13,7 @@ services:
     networks:
       - khedma_network
 
-
+#
   backend:
     # build:
     #   context: ./django/khedma
