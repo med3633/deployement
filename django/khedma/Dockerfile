@@ -3,7 +3,8 @@ FROM python:3.11.4
 
 # Set environment variable to ensure Python outputs are unbuffered
 ENV PYTHONUNBUFFERED 1
-
+#
+ENV PYTHONDONTWRITEBYTECODE 1
 # Set the working directory in the container
 WORKDIR /django/khedma
 
@@ -18,12 +19,14 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Make migrations
-RUN python3 manage.py makemigrations
+#RUN python3 manage.py makemigrations
 
-RUN python manage.py collectstatic --noinput
+#RUN python manage.py collectstatic --noinput
 
 # Apply migrations
 # RUN python3 manage.py migrate 
+#run when container launch
+ENTRYPOINT [ "sh", "-c", "./script/start.sh" ]
 CMD ["./wait-for-it.sh", "database:5432", "--", "python", "manage.py", "migrate"]
 
 
