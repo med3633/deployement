@@ -1,21 +1,35 @@
-# Use an official Python runtime as the base image
+# Use an official Python runtime as the base image with the desired Python version
 FROM python:3.11.4
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
+# Set environment variable to ensure Python outputs are unbuffered
 ENV PYTHONUNBUFFERED 1
-
+#
+ENV PYTHONDONTWRITEBYTECODE 1
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /django/khedma
 
-# Copy the dependencies file to the working directory
-COPY requirements.txt .
+# Copy the requirements.txt file into the container
+COPY requirements.txt requirements.txt
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install the project's dependencies using the specified Python version
+RUN pip install -r requirements.txt
 
-# Copy the project files to the working directory
+####
+# Copy the rest of your project files into the container
 COPY . .
 
-# Collect static files
+# Make migrations
+#RUN python3 manage.py makemigrations
+
 RUN python manage.py collectstatic --noinput
+
+# Apply migrations
+# RUN python3 manage.py migrate 
+#run when container launch
+# ENTRYPOINT [ "sh", "-c", "./script/start.sh" ]
+CMD ["./wait-for-it.sh", "database:5432", "--", "python", "manage.py", "migrate"]
+
+
+# CMD python3 manage.py runserver 0.0.0.0:$PORT
+
+
