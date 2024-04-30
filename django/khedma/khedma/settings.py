@@ -52,8 +52,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -211,18 +209,20 @@ AUTH_USER_MODEL='users.UserAccount'
 
 # STATIC_URL = 'static/'
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'build/static'),
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-MEDIA_URL=  'media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'build')
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+# MEDIA_URL=  'media/'
 
 # STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
 # STATIC_ROOT= '/django/khedma/static/',
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+# MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 # MEDIA_ROOT=  '/django/khedma/media/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 SITE_URL='http://backend:8000'
