@@ -207,15 +207,15 @@ DJOSER = {
 }
 AUTH_USER_MODEL='users.UserAccount'
 
-STATIC_URL = 'static/'
-MEDIA_URL='media/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static'),
+]
 
-# STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT= '/django/khedma/static/',
-
-# MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_ROOT=  '/django/khedma/media/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'build')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 SITE_URL='http://51.255.49.204'
 STRIPE_PUBLIC_KEY = "pk_test_51NMx6pCEDPGV7wFOYDafbFRbWKEX5N4q4b7pzz7cls5vmwwzJxXFKAwMNXXi5iZOJ6kAguk2623QfkXwNz4W4Z1r00BHVB6zHK"
 STRIPE_SECRET_KEY = 'sk_test_51NMx6pCEDPGV7wFOeBkpPPNg15nf3HXPIyjLhMLCqMOAJ22oZ7OphEGE1oEUyCtFxogJwVfHTJEVthdbTC0o9gkI008o9d6wQ8'
