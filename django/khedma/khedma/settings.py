@@ -26,7 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y=)-^f1*m!b^$7=)a=$%9)2cv%4a2por%m#@p3v@_%sa!!@b*5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = False
+
 
 ALLOWED_HOSTS = ['backend', 'frontend', 'localhost','51.255.49.204']  # Add your frontend and backend hostnames
 ##
@@ -62,11 +64,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
+
     'http://backend:8000',
     'http://backend:8000', 
     'http://frontend:3000',  
    'http://frontend:8800',
     'http://frontend:3001',
+
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
@@ -217,7 +221,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
+
 SITE_URL='http://51.255.49.204'
+
 STRIPE_PUBLIC_KEY = "pk_test_51NMx6pCEDPGV7wFOYDafbFRbWKEX5N4q4b7pzz7cls5vmwwzJxXFKAwMNXXi5iZOJ6kAguk2623QfkXwNz4W4Z1r00BHVB6zHK"
 STRIPE_SECRET_KEY = 'sk_test_51NMx6pCEDPGV7wFOeBkpPPNg15nf3HXPIyjLhMLCqMOAJ22oZ7OphEGE1oEUyCtFxogJwVfHTJEVthdbTC0o9gkI008o9d6wQ8'
 #STRIPE_WEBHOOK_SECRET = "whsec_52607b6c553df150d7e16f1d5942c3709e59fc2e8369f4ed1006e8c702766507"
