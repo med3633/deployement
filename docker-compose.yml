@@ -17,20 +17,20 @@ services:
     build:
       context: ./django/khedma
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
-    ports:
-      - "8000:8000"  ## Expose HTTPS on port 443
+    # ports:
+    #   - "8000:8000"  ## Expose HTTPS on port 443
     depends_on:
       - database
     networks:
       - khedma_network
     volumes:
       - .:/app
-      - static_volume:/app/static
+      - static_volume:/django/khedma/media/images
       
   frontend:
     build: ./reactjs/khedma/
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
     depends_on:
       - backend
     networks:
