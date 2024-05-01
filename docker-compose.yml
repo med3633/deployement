@@ -24,16 +24,13 @@ services:
     networks:
       - khedma_network
     volumes:
-      - digitalocean_media-volume:/django/khedma/media
-
-      # # - /etc/letsencrypt/live/mohamed123.zapto.org/fullchain.pem:/etc/ssl/certs/fullchain.pem
-      # # - /etc/letsencrypt/live/mohamed123.zapto.org/privkey.pem:/etc/ssl/private/privkey.pem
+      - .:/app
+      - static_volume:/app/static
+      
   frontend:
     build: ./reactjs/khedma/
     ports:
       - "3000:3000"
-    # volumes:
-    #   - web-root:/app/build
     depends_on:
       - backend
     networks:
@@ -45,4 +42,4 @@ networks:
     driver: bridge
 ########################
 volumes:
-  digitalocean_media-volume:
+  static_volume:
