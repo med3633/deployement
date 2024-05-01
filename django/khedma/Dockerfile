@@ -38,12 +38,11 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Make migrations (Optional: Only needed if there are changes in models)
-# RUN python manage.py makemigrations
+RUN python manage.py makemigrations
 
 # Apply migrations (Required: Apply migrations to the database)
 
 # Collect static files (Optional: Only needed for serving static files)
-RUN python manage.py collectstatic --noinput
 
 # Command to run when the container is launched
 CMD ["./wait-for-it.sh", "database:5432", "--", "python", "manage.py", "migrate"]

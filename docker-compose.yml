@@ -12,45 +12,45 @@ services:
       - POSTGRES_PASSWORD=postgres
     networks:
       - khedma_network
-#####
+
+        
   backend:
     build:
       context: ./django/khedma
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
-    # ports:
-    #   - "8000:8000"  ## Expose HTTPS on port 443
+    ports:
+      - "8000:8000"  ## Expose HTTPS on port 443
     depends_on:
       - database
     networks:
       - khedma_network
     volumes:
-      - .:/app
-      - static_volume:/django/khedma/media/images
+      - .:/django/khedma
+      - static_volume:/django/khedma/build/static
       
   frontend:
     build: ./reactjs/khedma/
-    # ports:
-    #   - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - khedma_network
-
-  webserver:
-    image: nginx
-    restart: unless-stopped
     ports:
-      - "80:80"
-    volumes:
-     # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - static_volume:/app/static
-
+      - "3000:3000"
     depends_on:
-      - frontend
       - backend
     networks:
       - khedma_network
+
+  # webserver:
+  #   image: nginx
+  #   restart: unless-stopped
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #    # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  #     - static_volume:/django/khedma/build/static
+  #   depends_on:
+  #     - frontend
+  #     - backend
+  #   networks:
+  #     - khedma_network
 
 
 

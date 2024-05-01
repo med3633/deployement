@@ -212,18 +212,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-# MEDIA_URL=  'media/'
-
-# STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
-# STATIC_ROOT= '/django/khedma/static/',
-
-# MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-# MEDIA_ROOT=  '/django/khedma/media/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 SITE_URL='http://backend:8000'
 STRIPE_PUBLIC_KEY = "pk_test_51NMx6pCEDPGV7wFOYDafbFRbWKEX5N4q4b7pzz7cls5vmwwzJxXFKAwMNXXi5iZOJ6kAguk2623QfkXwNz4W4Z1r00BHVB6zHK"
 STRIPE_SECRET_KEY = 'sk_test_51NMx6pCEDPGV7wFOeBkpPPNg15nf3HXPIyjLhMLCqMOAJ22oZ7OphEGE1oEUyCtFxogJwVfHTJEVthdbTC0o9gkI008o9d6wQ8'
