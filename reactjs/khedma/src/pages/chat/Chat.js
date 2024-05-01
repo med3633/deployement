@@ -31,6 +31,7 @@ function Chat({ id, isAuthenticated }) {
   }, [sendMessage]);
 
   useEffect(() => {
+
     socket.current = io("http://backend:8800");
     socket.current.emit("new-user-add", id);
     socket.current.on("get-users", (users) => {

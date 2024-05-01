@@ -122,6 +122,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
                 <div className="chat-header">
                   <div className="follower-vertical">
                     <img
+
                       src={`http://backend:8000/${userData?.logo || 'defaultProfile.png'}`}
                       alt=""
                       className="followerImage"
