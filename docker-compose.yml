@@ -25,9 +25,8 @@ services:
     networks:
       - khedma_network
     volumes:
-      - .:/django/khedma
-      - static_volume:/django/khedma/build/static
-      
+      - digitalocean_media-volume:/django/khedma/media    
+        
   frontend:
     build: ./reactjs/khedma/
     ports:
@@ -59,4 +58,4 @@ networks:
     driver: bridge
 ########################
 volumes:
-  static_volume:
+  digitalocean_media-volume:
