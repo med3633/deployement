@@ -36,6 +36,23 @@ services:
     networks:
       - khedma_network
 
+  webserver:
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+     # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - static_volume:/app/static
+
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - khedma_network
+
+
 
 networks:
   khedma_network:
