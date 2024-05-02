@@ -36,20 +36,20 @@ services:
     networks:
       - khedma_network
 
-  # webserver:
-  #   image: nginx
-  #   restart: unless-stopped
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #    # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-  #     - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-  #     - static_volume:/django/khedma/build/static
-  #   depends_on:
-  #     - frontend
-  #     - backend
-  #   networks:
-  #     - khedma_network
+  webserver:
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+     # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - digitalocean_media-volume:/django/khedma/media 
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - khedma_network
 
 
 
