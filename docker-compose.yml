@@ -6,6 +6,7 @@ services:
     image: postgres:15.3-alpine
     volumes:
       - ./backup_data/db:/var/lib/postgresql/data
+      - ../backups_data/db:/backups
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -24,7 +25,7 @@ services:
     networks:
       - khedma_network
     volumes:
-      - digitalocean_media-volume:/app/media
+      - ../media/:/django/khedma/media
       - digitalocean_static-volume:/app/build/static
       # - /etc/letsencrypt/live/mohamed123.zapto.org/fullchain.pem:/etc/ssl/certs/fullchain.pem
       # - /etc/letsencrypt/live/mohamed123.zapto.org/privkey.pem:/etc/ssl/private/privkey.pem
@@ -59,7 +60,6 @@ services:
 networks:
   khedma_network:
     driver: bridge
-####################
+
 volumes:
-  digitalocean_media-volume:
   digitalocean_static-volume:
