@@ -23,8 +23,8 @@ services:
     networks:
       - khedma_network
     volumes:
-      - digitalocean_media-volume:/django/khedma/media
-
+      - ../media/:/django/khedma/media
+      
   frontend:
     image: mohamedamineblibech/frontend
     # ports:
@@ -48,8 +48,7 @@ services:
       - khedma_network
 
 
-volumes:
-  digitalocean_media-volume:
+
 
 networks:
   khedma_network:
