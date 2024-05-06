@@ -48,7 +48,7 @@ services:
     volumes:
      # - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - digitalocean_media-volume:/app/media
+      - ../media/:/django/khedma/media
       - digitalocean_static-volume:/app/build/static
 
     depends_on:
