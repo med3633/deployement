@@ -12,7 +12,7 @@ services:
       - POSTGRES_PASSWORD=postgres
     networks:
       - khedma_network
-#####
+
   backend:
     build:
       context: ./django/khedma
@@ -31,6 +31,6 @@ services:
 networks:
   khedma_network:
     driver: bridge
-########################
+
 volumes:
   digitalocean_media-volume:
