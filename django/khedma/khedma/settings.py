@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-y=)-^f1*m!b^$7=)a=$%9)2cv%4a2por%m#@p3v@_%sa!!@b*5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['backend', 'frontend', 'localhost','mohamed123.zapto.org']  # Add your frontend and backend hostnames
+ALLOWED_HOSTS = ['backend', 'frontend', 'localhost','51.255.49.204']  # Add your frontend and backend hostnames
 ##
 
 
@@ -70,7 +70,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
-##
+
 
 ROOT_URLCONF = 'khedma.urls'
 
