@@ -26,7 +26,7 @@ services:
       - khedma_network
     volumes:
       - ../media/:/django/khedma/media
-      - digitalocean_static-volume:/app/build/static
+      - digitalocean_static-volume:/django/khedma/build/static
       # - /etc/letsencrypt/live/mohamed123.zapto.org/fullchain.pem:/etc/ssl/certs/fullchain.pem
       # - /etc/letsencrypt/live/mohamed123.zapto.org/privkey.pem:/etc/ssl/private/privkey.pem
   frontend:
